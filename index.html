@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+    <title>Simple Food Order</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .container {
+            display: flex;
+            gap: 20px;
+        }
+        .left-column {
+            flex: 1;
+        }
+        .right-column {
+            flex: 1;
+        }
+        .menu-item {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .order-summary {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-top: 20px;
+            white-space: pre-line;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Food Ordering System</h1>
+    
+    <div class="container">
+        <div class="left-column">
+            <h3>Menu:</h3>
+            
+            <div class="menu-item">
+                <label>
+                    <input type="checkbox" id="burger" value="120"> 
+                    Burger - ₱120
+                </label>
+            </div>
+            
+            <div class="menu-item">
+                <label>
+                    <input type="checkbox" id="pizza" value="250"> 
+                    Pizza - ₱250
+                </label>
+            </div>
+            
+            <div class="menu-item">
+                <label>
+                    <input type="checkbox" id="fries" value="80"> 
+                    Fries - ₱80
+                </label>
+            </div>
+            
+            <div class="menu-item">
+                <label>
+                    <input type="checkbox" id="soda" value="50"> 
+                    Soda - ₱50
+                </label>
+            </div>
+            
+            <div class="menu-item">
+                <label>
+                    <input type="checkbox" id="icecream" value="90"> 
+                    Ice Cream - ₱90
+                </label>
+            </div>
+
+            <h3>Customer Details:</h3>
+            
+            <input type="text" id="name" placeholder="Name">
+            <input type="text" id="address" placeholder="Address">
+            <input type="text" id="contact" placeholder="Contact">
+            
+            <button py-click="create_order">Create Order</button>
+        </div>
+        
+        <div class="right-column">
+            <h3>Order Summary:</h3>
+            <div class="order-summary" id="orderOutput">
+                Select items and click Create Order
+            </div>
+        </div>
+    </div>
+
+    <py-config>
+        [[fetch]]
+        files = ["main.py"]
+    </py-config>
+    
+    <script type="py" src="main.py"></script>
+</body>
+</html>
